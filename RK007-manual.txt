@@ -1,0 +1,52 @@
+RK007 MIDI Commander Kit
+
+Project files: https://drive.google.com/open?id=1LpxNChKV5Pfq7GSkrDywf7HrHmvsol1A
+
+DESCRIPTION
+The RK007 is a gizmo made of low-cost parts with the aim to hack into your MIDI setup James Bond style. It is based on an Arduino Pro Micro and easy available parts found online (at the time of writing :-) )
+
+The Pro Micro is able to be a USBMIDI device so you can plugin the RK007 into the RK005 / RK006 (or just plug it into a computer with a DAW) and incooperate it's MIDI commands via USB to DIN5.
+
+The Lolin D32 ESP32 board is able to send BLE MIDI as well. The Lolin board also has LiPo battery connections so it could be a totally wireless device, ready to pair to your iPad or whatever.
+
+(PS: The RK005 / RK006 is also able to host the CH340 Serial chip used on the Lolin ESP32 boards so you can use it as a remote controller / BLE bridge on these RK-devices as well.)
+
+The RK007 firmware will also output the MIDI commands via it's serial bus to adding a 'real' MIDI port on it can also be done without too much hassle.
+
+The housing is available as .STL file which you can print with a 3D printer.
+
+WHAT DOES IT DO?
+It is able to send out various MIDI commands. The keypad has 4 keys with characters A B C and D, these pads definte the command mode. The numbers can be used to enter values and the dial can be used to send controller messages.
+
+THE KEY MODES A B C D
+A: Program Change
+In this mode the numeric pads can send out a MIDI Program Change. Press the digits you want and send out with #. Cancel the sending with the * key. Patch range is 1-128
+
+
+B: Note On
+In this mode the numeric pads can send out a MIDI Note on (and off). Press the digits you want and send out with #. Cancel the sending with the * key. Key range is 0-128, 128 being a 'note panic' message
+
+C: MIDI Channel
+Set the MIDI on which the RK007 operates. Press the digits you want and set it with # (Cancel the definition with the * key). The MIDI channel range is 1-16.
+
+This MIDI channel setting is a global one: all notes, controllers, program changes will be sent out to this channel hereafter.
+
+D: Dial Controller number
+In this mode you can define which MIDI Controller number is mapped under the dial on the RK007. Press the digits you want and send out with #. After setting the CC number, the dial will send out values to that CC number. Cancel the entered definition with the * key. Controller range is 1-128
+
+KEYPAD EXTRAS
+The * and # keys have double function:
+As described above, once you have entered a value in the keypad it will act as respectively 'cancel value' and 'enter value'. 
+
+However, if there is no number to process or cancel:
+The * toggles MIDI Start/Stop messages. You can use it to insert these messages into your MIDI stream and start/stop sequencers, a pretty rare option because most devices never end out these commands without tempo.
+
+The # key will repeat a last entered message if no new value is entered.
+
+
+We think the RK007 is already a very handy box to have. Being open source: feel free to add extras to it or modify it to fit your needs. You can be a real Q putting this thing together!
+
+
+Happy Jammin'!
+
+Retrokits.com
